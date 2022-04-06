@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- bean definitions here -->
+	<bean id="emp" name="employee"
+		class="com.simplilearn.spring_core.Employee">
+		<property name="id" value="101"></property>
+		<property name="ename" value="parth"></property>
+
+	</bean>
+	
+	<bean id="emp2" name="employee2"
+		class="com.simplilearn.spring_core.Employee">
+		<constructor-arg name="id" value="102"></constructor-arg>
+		<constructor-arg name="ename" value="Maharaja"></constructor-arg>
+
+	</bean>
+	
+	<bean name="address_ref" class="com.simplilearn.spring_core.Address">
+	<property name="cities">
+	<list>
+	<value>Nagpur</value>
+	<value>Chandrapur</value>
+	<value>Pune</value>
+	<value>Aurangabad</value>
+	<value>Mumbai</value>
+	</list>
+	</property>
+	</bean>
+	<bean id="emp3" name="employee3"
+		class="com.simplilearn.spring_core.Employee">
+		<property name="id" value="103"></property>
+		<property name="ename" value="King"></property>
+		<property name="address" ref="address_ref">
+		</property>
+
+	</bean>
+	
+	<bean name="dao_ref" class="com.simplilearn.spring_core.DAO"></bean>
+	
+	<bean id="service" name="service"
+		class="com.simplilearn.spring_core.ServiceDemo">
+		<property name="dao" ref="dao_ref"></property>
+	</bean>
+
+</beans>

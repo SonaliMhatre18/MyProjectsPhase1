@@ -1,0 +1,5 @@
+# To  disable eureka client use following properties
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
